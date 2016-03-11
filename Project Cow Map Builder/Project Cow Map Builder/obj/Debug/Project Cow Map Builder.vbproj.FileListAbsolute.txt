@@ -1,0 +1,11 @@
+M:\Map Editor\Project Cow Map Builder\Project Cow Map Builder\bin\Debug\Project Cow Map Builder.exe.config
+M:\Map Editor\Project Cow Map Builder\Project Cow Map Builder\bin\Debug\Project Cow Map Builder.exe
+M:\Map Editor\Project Cow Map Builder\Project Cow Map Builder\bin\Debug\Project Cow Map Builder.pdb
+M:\Map Editor\Project Cow Map Builder\Project Cow Map Builder\bin\Debug\Project Cow Map Builder.xml
+M:\Map Editor\Project Cow Map Builder\Project Cow Map Builder\obj\Debug\Project_Cow_Map_Builder.Form1.resources
+M:\Map Editor\Project Cow Map Builder\Project Cow Map Builder\obj\Debug\Project_Cow_Map_Builder.Resources.resources
+M:\Map Editor\Project Cow Map Builder\Project Cow Map Builder\obj\Debug\Project Cow Map Builder.vbproj.GenerateResource.Cache
+M:\Map Editor\Project Cow Map Builder\Project Cow Map Builder\obj\Debug\Project Cow Map Builder.exe
+M:\Map Editor\Project Cow Map Builder\Project Cow Map Builder\obj\Debug\Project Cow Map Builder.xml
+M:\Map Editor\Project Cow Map Builder\Project Cow Map Builder\obj\Debug\Project Cow Map Builder.pdb
+M:\Map Editor\Project Cow Map Builder\Project Cow Map Builder\obj\Debug\Project Cow Map Builder.vbprojResolveAssemblyReference.cache
