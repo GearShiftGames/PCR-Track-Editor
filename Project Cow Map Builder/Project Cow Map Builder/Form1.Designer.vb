@@ -35,26 +35,33 @@ Partial Class Form1
         Me.btnSmallRock = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnCheckPoint = New System.Windows.Forms.ToolStripMenuItem()
         Me.VehicleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnView = New System.Windows.Forms.ToolStripMenuItem()
         Me.chkPoint = New System.Windows.Forms.GroupBox()
+        Me.txtId = New System.Windows.Forms.TextBox()
+        Me.txtNId = New System.Windows.Forms.TextBox()
+        Me.txtPId = New System.Windows.Forms.TextBox()
+        Me.txtRot = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.txtRot = New System.Windows.Forms.TextBox()
-        Me.txtPId = New System.Windows.Forms.TextBox()
-        Me.txtNId = New System.Windows.Forms.TextBox()
-        Me.txtId = New System.Windows.Forms.TextBox()
+        Me.btnRotate = New System.Windows.Forms.Button()
+        Me.picIn = New System.Windows.Forms.PictureBox()
+        Me.picOut = New System.Windows.Forms.PictureBox()
         Me.menuStrip.SuspendLayout()
         Me.chkPoint.SuspendLayout()
+        CType(Me.picIn, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picOut, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'menuStrip
         '
         Me.menuStrip.BackColor = System.Drawing.Color.Transparent
-        Me.menuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.AddToolStripMenuItem})
+        Me.menuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.AddToolStripMenuItem, Me.ViewToolStripMenuItem})
         Me.menuStrip.Location = New System.Drawing.Point(0, 0)
         Me.menuStrip.Name = "menuStrip"
-        Me.menuStrip.Size = New System.Drawing.Size(944, 24)
+        Me.menuStrip.Size = New System.Drawing.Size(960, 24)
         Me.menuStrip.Stretch = False
         Me.menuStrip.TabIndex = 3
         Me.menuStrip.Text = "MenuStrip1"
@@ -99,8 +106,8 @@ Partial Class Form1
         '
         Me.AddToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BackgroundToolStripMenuItem, Me.btnBarrier, Me.btnCheckPoint, Me.VehicleToolStripMenuItem})
         Me.AddToolStripMenuItem.Name = "AddToolStripMenuItem"
-        Me.AddToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
-        Me.AddToolStripMenuItem.Text = "Add"
+        Me.AddToolStripMenuItem.Size = New System.Drawing.Size(39, 20)
+        Me.AddToolStripMenuItem.Text = "Edit"
         '
         'BackgroundToolStripMenuItem
         '
@@ -133,6 +140,19 @@ Partial Class Form1
         Me.VehicleToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.VehicleToolStripMenuItem.Text = "Vehicle"
         '
+        'ViewToolStripMenuItem
+        '
+        Me.ViewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnView})
+        Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
+        Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.ViewToolStripMenuItem.Text = "View"
+        '
+        'btnView
+        '
+        Me.btnView.Name = "btnView"
+        Me.btnView.Size = New System.Drawing.Size(138, 22)
+        Me.btnView.Text = "Check Point"
+        '
         'chkPoint
         '
         Me.chkPoint.Controls.Add(Me.txtId)
@@ -150,6 +170,55 @@ Partial Class Form1
         Me.chkPoint.TabStop = False
         Me.chkPoint.Text = "Check Point"
         Me.chkPoint.Visible = False
+        '
+        'txtId
+        '
+        Me.txtId.BackColor = System.Drawing.SystemColors.Control
+        Me.txtId.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtId.Location = New System.Drawing.Point(61, 16)
+        Me.txtId.Name = "txtId"
+        Me.txtId.Size = New System.Drawing.Size(27, 13)
+        Me.txtId.TabIndex = 10
+        Me.txtId.Text = "0"
+        '
+        'txtNId
+        '
+        Me.txtNId.BackColor = System.Drawing.SystemColors.Control
+        Me.txtNId.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtNId.Location = New System.Drawing.Point(61, 29)
+        Me.txtNId.Name = "txtNId"
+        Me.txtNId.Size = New System.Drawing.Size(27, 13)
+        Me.txtNId.TabIndex = 9
+        Me.txtNId.Text = "0"
+        '
+        'txtPId
+        '
+        Me.txtPId.BackColor = System.Drawing.SystemColors.Control
+        Me.txtPId.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtPId.Location = New System.Drawing.Point(61, 42)
+        Me.txtPId.Name = "txtPId"
+        Me.txtPId.Size = New System.Drawing.Size(27, 13)
+        Me.txtPId.TabIndex = 8
+        Me.txtPId.Text = "0"
+        '
+        'txtRot
+        '
+        Me.txtRot.BackColor = System.Drawing.SystemColors.Control
+        Me.txtRot.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtRot.Location = New System.Drawing.Point(61, 55)
+        Me.txtRot.Name = "txtRot"
+        Me.txtRot.Size = New System.Drawing.Size(27, 13)
+        Me.txtRot.TabIndex = 7
+        Me.txtRot.Text = "0"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(6, 55)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(50, 13)
+        Me.Label4.TabIndex = 6
+        Me.Label4.Text = "Rotation:"
         '
         'Label3
         '
@@ -178,54 +247,31 @@ Partial Class Form1
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "ID:"
         '
-        'Label4
+        'btnRotate
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 55)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(50, 13)
-        Me.Label4.TabIndex = 6
-        Me.Label4.Text = "Rotation:"
+        Me.btnRotate.Location = New System.Drawing.Point(441, 272)
+        Me.btnRotate.Name = "btnRotate"
+        Me.btnRotate.Size = New System.Drawing.Size(75, 23)
+        Me.btnRotate.TabIndex = 5
+        Me.btnRotate.Text = "Button1"
+        Me.btnRotate.UseVisualStyleBackColor = True
         '
-        'txtRot
+        'picIn
         '
-        Me.txtRot.BackColor = System.Drawing.SystemColors.Control
-        Me.txtRot.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtRot.Location = New System.Drawing.Point(61, 55)
-        Me.txtRot.Name = "txtRot"
-        Me.txtRot.Size = New System.Drawing.Size(27, 13)
-        Me.txtRot.TabIndex = 7
-        Me.txtRot.Text = "0"
+        Me.picIn.Image = Global.Project_Cow_Map_Builder.My.Resources.Resources.wheelBlue
+        Me.picIn.Location = New System.Drawing.Point(61, 204)
+        Me.picIn.Name = "picIn"
+        Me.picIn.Size = New System.Drawing.Size(86, 76)
+        Me.picIn.TabIndex = 6
+        Me.picIn.TabStop = False
         '
-        'txtPId
+        'picOut
         '
-        Me.txtPId.BackColor = System.Drawing.SystemColors.Control
-        Me.txtPId.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtPId.Location = New System.Drawing.Point(61, 42)
-        Me.txtPId.Name = "txtPId"
-        Me.txtPId.Size = New System.Drawing.Size(27, 13)
-        Me.txtPId.TabIndex = 8
-        Me.txtPId.Text = "0"
-        '
-        'txtNId
-        '
-        Me.txtNId.BackColor = System.Drawing.SystemColors.Control
-        Me.txtNId.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtNId.Location = New System.Drawing.Point(61, 29)
-        Me.txtNId.Name = "txtNId"
-        Me.txtNId.Size = New System.Drawing.Size(27, 13)
-        Me.txtNId.TabIndex = 9
-        Me.txtNId.Text = "0"
-        '
-        'txtId
-        '
-        Me.txtId.BackColor = System.Drawing.SystemColors.Control
-        Me.txtId.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtId.Location = New System.Drawing.Point(61, 16)
-        Me.txtId.Name = "txtId"
-        Me.txtId.Size = New System.Drawing.Size(27, 13)
-        Me.txtId.TabIndex = 10
-        Me.txtId.Text = "0"
+        Me.picOut.Location = New System.Drawing.Point(153, 204)
+        Me.picOut.Name = "picOut"
+        Me.picOut.Size = New System.Drawing.Size(252, 211)
+        Me.picOut.TabIndex = 7
+        Me.picOut.TabStop = False
         '
         'Form1
         '
@@ -233,7 +279,10 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackgroundImage = Global.Project_Cow_Map_Builder.My.Resources.Resources.background
-        Me.ClientSize = New System.Drawing.Size(944, 502)
+        Me.ClientSize = New System.Drawing.Size(960, 540)
+        Me.Controls.Add(Me.picOut)
+        Me.Controls.Add(Me.picIn)
+        Me.Controls.Add(Me.btnRotate)
         Me.Controls.Add(Me.chkPoint)
         Me.Controls.Add(Me.menuStrip)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -248,6 +297,8 @@ Partial Class Form1
         Me.menuStrip.PerformLayout()
         Me.chkPoint.ResumeLayout(False)
         Me.chkPoint.PerformLayout()
+        CType(Me.picIn, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picOut, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -274,5 +325,10 @@ Partial Class Form1
     Friend WithEvents txtId As System.Windows.Forms.TextBox
     Friend WithEvents txtNId As System.Windows.Forms.TextBox
     Friend WithEvents txtPId As System.Windows.Forms.TextBox
+    Friend WithEvents ViewToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents btnView As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents btnRotate As System.Windows.Forms.Button
+    Friend WithEvents picIn As System.Windows.Forms.PictureBox
+    Friend WithEvents picOut As System.Windows.Forms.PictureBox
 
 End Class

@@ -1,4 +1,6 @@
-﻿Public Class Vehicle
+﻿Imports System.Drawing
+
+Public Class Vehicle
 
     Public p As New PictureBox
     Public rotation As Integer

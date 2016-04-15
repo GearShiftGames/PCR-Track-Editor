@@ -1,6 +1,7 @@
 ﻿Public Class Barrier
 
     Public p As New PictureBox
+    Public x, y As Integer
     Public id As Integer
 
     Sub New()
@@ -16,6 +17,8 @@
 
     Private Sub barrierMouseUp(sender As Object, e As MouseEventArgs)
         p.Location = New Point(p.Location.X + e.X - 8, p.Location.Y + e.Y - 5.5)
+        x = p.Left
+        y = p.Top
     End Sub
 
     Private Sub barrierClick(sender As Object, e As MouseEventArgs)
@@ -23,7 +26,6 @@
     End Sub
 
     Private Sub barrierDblClick(sender As Object, e As MouseEventArgs)
-        'Form1.barriers(id).p.Dispose()
         Form1.barriers.Remove(Me)
     End Sub
 

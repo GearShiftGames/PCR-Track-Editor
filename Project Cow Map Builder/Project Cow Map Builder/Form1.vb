@@ -12,6 +12,8 @@
 
     Private Sub Form1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Me.KeyPress
         Select Case e.KeyChar
+            Case "q"
+                rotateImage(5)
             Case "b"
                 barriers.Add(New Barrier())
                 s = barriers.Count - 1
@@ -127,6 +129,8 @@
                 subLine = Split(LineInput(1), "=")
                 tempY = Val(subLine(1)) / 2
                 barriers(barriers.Count - 1).p.Location = New Point(tempX, tempY)
+                barriers(barriers.Count - 1).x = tempX
+                barriers(barriers.Count - 1).y = tempY
                 LineInput(1) 'rotation not implemented
             End If
         Loop Until EOF(1)
@@ -194,5 +198,46 @@
         fileName = InputBox("Enter file name for background:")
         MsgBox(System.AppDomain.CurrentDomain.BaseDirectory() + fileName)
         Me.BackgroundImage = Image.FromFile(System.AppDomain.CurrentDomain.BaseDirectory() + fileName + ".png")
+    End Sub
+
+    Private Sub btnView_Click(sender As Object, e As EventArgs) Handles btnView.Click
+        If chkPoint.Visible Then
+            chkPoint.Visible = False
+        Else
+            chkPoint.Visible = True
+        End If
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Focus()
+    End Sub
+
+    Private Sub rotateImage(degrees_ As Integer)
+        Dim wid As Integer
+        Dim hgt As Integer
+        Dim radians As Double
+        Dim tempX, tempY As Single
+
+        radians = degrees_ * Math.PI / 180
+
+        ' Make a Bitmap representing the input image.
+        Dim bm_in As New Bitmap(picIn.Image)
+        wid = bm_in.Width
+        hgt = bm_in.Height
+
+        ' Make the output bitmap.
+        Dim bm_out As New Bitmap(hgt * 2, wid * 2)
+
+        ' Copy the pixel values.
+        For X = 0 To wid - 1
+            For Y = 0 To hgt - 1
+                tempX = X * Math.Cos(radians) - Y * Math.Sin(radians)
+                tempY = X * Math.Sin(radians) + Y * Math.Cos(radians)
+                bm_out.SetPixel(tempX, tempY, bm_in.GetPixel(X, Y))
+            Next Y
+        Next X
+
+        ' Display the result.
+        picOut.Image = bm_out
     End Sub
 End Class
